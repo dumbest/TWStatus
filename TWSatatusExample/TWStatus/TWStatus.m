@@ -201,7 +201,15 @@
 
 - (void)layout{
     
-    CGSize size = [_status sizeWithFont:_statusLabel.font forWidth:320 lineBreakMode:_statusLabel.lineBreakMode];
+    NSAttributedString *attributedText = [[NSAttributedString alloc]
+                                          initWithString:_statusLabel.text attributes:@ {
+                                            NSFontAttributeName: _statusLabel.font
+                                          }];
+
+    CGRect rect = [attributedText boundingRectWithSize:(CGSize){320, CGFLOAT_MAX}
+                                               options:NSStringDrawingUsesLineFragmentOrigin
+                                               context:nil];
+    CGSize size = rect.size;
  
     CGRect statusLabelFrame = _statusLabel.frame;
     statusLabelFrame.size.width = size.width;
