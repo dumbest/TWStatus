@@ -18,7 +18,7 @@
 		D02CCF291702C62F00FB2FB4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D02CCF281702C62F00FB2FB4 /* Default-568h@2x.png */; };
 		D02CCF2C1702C62F00FB2FB4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D02CCF2B1702C62F00FB2FB4 /* ViewController.m */; };
 		D02CCF2F1702C62F00FB2FB4 /* ViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = D02CCF2D1702C62F00FB2FB4 /* ViewController_iPhone.xib */; };
-		D02CCF3B1702C80B00FB2FB4 /* TWStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = D02CCF3A1702C80B00FB2FB4 /* TWStatus.m */; };
+		D4DA03F718BA67F900868D5F /* TWStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = D4DA03F618BA67F900868D5F /* TWStatus.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,8 +38,8 @@
 		D02CCF2A1702C62F00FB2FB4 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		D02CCF2B1702C62F00FB2FB4 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		D02CCF2E1702C62F00FB2FB4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPhone.xib; sourceTree = "<group>"; };
-		D02CCF391702C80B00FB2FB4 /* TWStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWStatus.h; sourceTree = "<group>"; };
-		D02CCF3A1702C80B00FB2FB4 /* TWStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWStatus.m; sourceTree = "<group>"; };
+		D4DA03F518BA67F900868D5F /* TWStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWStatus.h; sourceTree = "<group>"; };
+		D4DA03F618BA67F900868D5F /* TWStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWStatus.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +86,7 @@
 		D02CCF181702C62F00FB2FB4 /* TWSatatusExample */ = {
 			isa = PBXGroup;
 			children = (
-				D02CCF381702C80B00FB2FB4 /* TWStatus */,
+				D4DA03F418BA67F900868D5F /* TWStatus */,
 				D02CCF211702C62F00FB2FB4 /* AppDelegate.h */,
 				D02CCF221702C62F00FB2FB4 /* AppDelegate.m */,
 				D02CCF2A1702C62F00FB2FB4 /* ViewController.h */,
@@ -111,14 +111,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		D02CCF381702C80B00FB2FB4 /* TWStatus */ = {
+		D4DA03F418BA67F900868D5F /* TWStatus */ = {
 			isa = PBXGroup;
 			children = (
-				D02CCF391702C80B00FB2FB4 /* TWStatus.h */,
-				D02CCF3A1702C80B00FB2FB4 /* TWStatus.m */,
+				D4DA03F518BA67F900868D5F /* TWStatus.h */,
+				D4DA03F618BA67F900868D5F /* TWStatus.m */,
 			);
 			path = TWStatus;
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -186,10 +186,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4DA03F718BA67F900868D5F /* TWStatus.m in Sources */,
 				D02CCF1F1702C62F00FB2FB4 /* main.m in Sources */,
 				D02CCF231702C62F00FB2FB4 /* AppDelegate.m in Sources */,
 				D02CCF2C1702C62F00FB2FB4 /* ViewController.m in Sources */,
-				D02CCF3B1702C80B00FB2FB4 /* TWStatus.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
