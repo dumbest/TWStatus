@@ -29,16 +29,17 @@
 }
 
 - (void)setupDefaultApperance{
-    _statusWindow = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, 320, 20)];
+    CGFloat screenWidth = [UIScreen mainScreen].applicationFrame.size.width;
+    _statusWindow = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, screenWidth, 20)];
     _statusWindow.windowLevel = UIWindowLevelStatusBar;
     _statusWindow.backgroundColor = [UIColor blackColor];
     _statusWindow.alpha = 0.0;
     
-    _backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 20)];
+    _backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, 20)];
     _backgroundView.backgroundColor = [UIColor clearColor];
     _backgroundView.alpha = 0.0;
     
-    _statusLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 20)];
+    _statusLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, screenWidth, 20)];
     _statusLabel.backgroundColor = [UIColor clearColor];
     _statusLabel.textColor = [UIColor colorWithRed:191.0/255.0 green:191.0/255.0 blue:191.0/255.0 alpha:1.0];
     _statusLabel.font = [UIFont boldSystemFontOfSize:13];
@@ -200,8 +201,8 @@
 }
 
 - (void)layout{
-    
-    CGSize size = [_status sizeWithFont:_statusLabel.font forWidth:320 lineBreakMode:_statusLabel.lineBreakMode];
+    CGFloat screenWidth = [UIScreen mainScreen].applicationFrame.size.width;
+    CGSize size = [_status sizeWithFont:_statusLabel.font forWidth:screenWidth lineBreakMode:_statusLabel.lineBreakMode];
  
     CGRect statusLabelFrame = _statusLabel.frame;
     statusLabelFrame.size.width = size.width;
