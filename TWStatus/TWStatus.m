@@ -8,6 +8,8 @@
 
 #import "TWStatus.h"
 
+const static CGFloat kTWStatusHeight = 20;
+
 @interface TWStatus (){
     UIWindow *_statusWindow;
     UIView *_backgroundView;
@@ -36,17 +38,17 @@
 
 - (void)setupDefaultApperance{
     CGFloat screenWidth = [UIScreen mainScreen].applicationFrame.size.width;
-    _statusWindow = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, screenWidth, 20)];
+    _statusWindow = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, screenWidth, kTWStatusHeight)];
     _statusWindow.windowLevel = UIWindowLevelStatusBar;
     _statusWindow.backgroundColor = [UIColor blackColor];
     _statusWindow.alpha = 0.0;
     
-    _backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, 20)];
+    _backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, kTWStatusHeight)];
     _backgroundView.backgroundColor = [UIColor clearColor];
     _backgroundView.alpha = 0.0;
     _backgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     
-    _statusLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, screenWidth, 20)];
+    _statusLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, screenWidth, kTWStatusHeight)];
     _statusLabel.backgroundColor = [UIColor clearColor];
     _statusLabel.textColor = [UIColor colorWithRed:191.0/255.0 green:191.0/255.0 blue:191.0/255.0 alpha:1.0];
     _statusLabel.font = [UIFont boldSystemFontOfSize:13];
@@ -105,30 +107,36 @@
 - (void)layoutForOrientation {
     UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
     CGAffineTransform t;
+    CGRect frame;
+    CGSize sizeAppFrame = [UIScreen mainScreen].applicationFrame.size;
     switch (orientation) {
         default:
             NSLog(@"Warning - Unrecognised interface orientation (%d)",orientation);
         case UIInterfaceOrientationPortrait:
             t = CGAffineTransformIdentity;
+            frame = CGRectMake(0, 0, sizeAppFrame.width, kTWStatusHeight);
             break;
             
         case UIInterfaceOrientationLandscapeLeft:
             t = CGAffineTransformMakeRotation(-M_PI_2);
+            frame = CGRectMake(0, 0, kTWStatusHeight, sizeAppFrame.height);
             break;;
             
         case UIInterfaceOrientationLandscapeRight:
             t = CGAffineTransformMakeRotation(M_PI_2);
+            frame = CGRectMake(sizeAppFrame.width, 0, kTWStatusHeight, sizeAppFrame.height);
             break;
             
         case UIInterfaceOrientationPortraitUpsideDown:
             t = CGAffineTransformMakeRotation(M_PI);
+            frame = CGRectMake(0, sizeAppFrame.height, sizeAppFrame.width, kTWStatusHeight);
             break;
     }
     // Apply transform
     _statusWindow.transform = t;
     
     // Update frame
-    _statusWindow.frame = [UIApplication sharedApplication].statusBarFrame;
+    _statusWindow.frame = frame;
 }
 
 - (void)showLoadingWithStatus:(NSString *)status{
