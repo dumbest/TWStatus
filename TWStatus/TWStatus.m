@@ -124,12 +124,22 @@ const static CGFloat kTWStatusHeight = 20;
             
         case UIInterfaceOrientationLandscapeRight:
             t = CGAffineTransformMakeRotation(M_PI_2);
-            frame = CGRectMake(sizeAppFrame.width, 0, kTWStatusHeight, sizeAppFrame.height);
+            if ([UIApplication sharedApplication].statusBarHidden) {
+                frame = CGRectMake(sizeAppFrame.width-kTWStatusHeight, 0, kTWStatusHeight, sizeAppFrame.height);
+            }
+            else {
+                frame = CGRectMake(sizeAppFrame.width, 0, kTWStatusHeight, sizeAppFrame.height);
+            }
             break;
             
         case UIInterfaceOrientationPortraitUpsideDown:
             t = CGAffineTransformMakeRotation(M_PI);
-            frame = CGRectMake(0, sizeAppFrame.height, sizeAppFrame.width, kTWStatusHeight);
+            if ([UIApplication sharedApplication].statusBarHidden) {
+                frame = CGRectMake(0, sizeAppFrame.height - kTWStatusHeight, sizeAppFrame.width, kTWStatusHeight);
+            }
+            else {
+                frame = CGRectMake(0, sizeAppFrame.height, sizeAppFrame.width, kTWStatusHeight);
+            }
             break;
     }
     // Apply transform
