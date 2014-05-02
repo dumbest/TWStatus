@@ -100,7 +100,7 @@ const static CGFloat kTWStatusHeight = 20;
 - (void)handleOrientationChange:(NSNotification *)notif {
     // NOTE- In iOS7.1, statusBarOrientation property returns final value after the orientation is completed
     // Hence do the layout with delay
-    if ([UIDevice currentDevice].systemVersion.floatValue >= 7.1) {
+    if ([UIDevice currentDevice].systemVersion.floatValue >= 7.09) {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(([UIApplication sharedApplication].statusBarOrientationAnimationDuration + .1) * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self layoutForOrientation];
             [self layout];
