@@ -11,10 +11,10 @@ Status with ``` UIActivityIndicator ```
 
 Plain status
 
-##Installation
+## Installation
 Copy contents of the 'TWStatus' folder to your project
 
-##Usage
+## Usage
 
 ```objc
 //Show status with activity indicator
@@ -31,7 +31,7 @@ Copy contents of the 'TWStatus' folder to your project
 
 ```
 
-##Requirements
+## Requirements
 - iOS >= 5.0
 - ARC
 
